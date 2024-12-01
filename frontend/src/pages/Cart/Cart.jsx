@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom';
+import { assets } from '../../assets/assets';
 
 const Cart = () => {
 
@@ -33,7 +34,7 @@ const Cart = () => {
                       <p>₱{item.price}</p>
                       <p>{cartItems[item._id]}kl</p>
                       <p>₱{item.price*cartItems[item._id]}</p>
-                      <p onClick={()=>removeFromCart(item._id)} className='cross'>x</p>
+                      <img onClick={()=>removeFromCart(item._id)} className='cross' src={assets.bin}></img>
                    </div> 
                    <hr />
                 </div>
@@ -60,9 +61,9 @@ const Cart = () => {
               <b>{getTotalCartAmount()===0?0:getTotalCartAmount()+100}</b>
             </div>
           </div>
-            <button onClick={()=>navigate('/order')}>Proceed to Checkout</button>
+            <button onClick={()=>navigate('/order')}>Proceed to checkout</button>
         </div>
-        <div className="cart-promocode">
+        {/* <div className="cart-promocode">
           <div>
             <p>Enter promo code here</p>
             <div className='cart-promocode-input'>
@@ -70,7 +71,7 @@ const Cart = () => {
               <button>Submit</button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
